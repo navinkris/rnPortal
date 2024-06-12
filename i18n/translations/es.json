@@ -1,0 +1,14 @@
+{
+  "home": "Inicio",
+  "dashboard": "Tablero",
+  "camera": "Cámara",
+  "bluetooth": "Bluetooth",
+  "todoList": "Lista de tareas",
+  "settings": "Configuraciones",
+  "changeLanguage": "Cambiar idioma",
+  "english": "Inglés",
+  "arabic": "Árabe",
+  "spanish": "Español",
+  "polish": "Polaco",
+  "darkMode": "Modo oscuro"
+}
