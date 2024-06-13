@@ -48,14 +48,14 @@ const SettingsScreen = () => {
             LayoutAnimation.configureNext(LayoutAnimation.create(200, 'easeInEaseOut', 'opacity'))
           }}>
             <View style={styles.button}>
-              <Text style={styles.text}>{t('changeLanguage')}</Text>
+              <Text style={styles.text} isDarkMode={isDarkMode}>{t('changeLanguage')}</Text>
             </View>
           </TouchableNativeFeedback>
           {showLanguagesList && <>
             {languages.map((item, index) => (
               <TouchableOpacity key={index} style={[styles.button, { paddingHorizontal: 24 }]}
                 onPress={() => changeLanguage(item.code)}>
-                <Text style={styles.text}>{t(item.name)}</Text>
+                <Text style={styles.text} isDarkMode={isDarkMode}>{t(item.name)}</Text>
               </TouchableOpacity>
             ))}
           </>
