@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LineChartScreen from "./visualizations/LineChartScreen";
 import PieChartScreen from "./visualizations/PieChartScreen";
@@ -13,7 +12,7 @@ const DashboardScreen = () => {
   const {t} = useTranslation();
   return (
     <Tab.Navigator>
-      <Tab.Screen name="LineChart" component={LineChartScreen}/>
+      <Tab.Screen  name="LineChart" component={LineChartScreen}/>
       <Tab.Screen name="PieChart" component={PieChartScreen}/>
       <Tab.Screen name="BarChart" component={BarChartScreen}/>
       <Tab.Screen name="AreaChart" component={AreaChartScreen}/>

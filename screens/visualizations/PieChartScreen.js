@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
+import { Text } from '../../utils/Theme';
 
 const screenWidth = Dimensions.get('window').width;
 

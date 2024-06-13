@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Image, StyleSheet, Text, View } from "react-native"
+import { Image, StyleSheet, View } from "react-native"
 import { RNCamera } from "react-native-camera";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text } from "../utils/Theme";
 
 const CameraScreen = () => {
   const {t} = useTranslation();
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
-  caputureText: {
+  captureText: {
     fontSize: 14
   },
   capturedImage: {

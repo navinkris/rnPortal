@@ -89,8 +89,8 @@ const App = () => {
     <ScrollView horizontal={true}>
       <View style={{ padding: 16, paddingTop: 30 }}>
         <Table borderStyle={{ borderWidth: 1 }}>
-          <Row data={tableHead} widthArr={widthArr} style={{ height: 40, backgroundColor: '#f1f8ff' }} textStyle={{ margin: 6 }} />
-          <Rows data={tableData} widthArr={widthArr} textStyle={{ margin: 6 }} />
+          <Row data={tableHead} widthArr={widthArr} style={{ height: 40, backgroundColor: '#f1f8ff' }} textStyle={{ margin: 6, color: 'black' }} />
+          <Rows data={tableData} widthArr={widthArr} textStyle={{ margin: 6, color: 'black' }} />
         </Table>
       </View>
     </ScrollView>

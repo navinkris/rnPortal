@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from "react-native"
+import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TextInput, View } from "react-native"
 import Task from "../components/Task";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useState } from "react";
+import { Text } from "../utils/Theme";
 
 const ToDoListScreen = () => {
   const {t} = useTranslation();

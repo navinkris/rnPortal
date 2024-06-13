@@ -3,7 +3,6 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import DashboardScreen from './screens/DashboardScreen';
 import SettingsScreen from './screens/SettingsScreen';
-import { Text, useColorScheme } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import CameraScreen from './screens/CameraScreen';
 import BluetoothScreen from './screens/BluetoothScreen';
