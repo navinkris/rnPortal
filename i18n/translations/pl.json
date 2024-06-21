@@ -1,14 +1,25 @@
 {
   "home": "Strona główna",
-  "dashboard": "Pulpit",
+  "dashboard": "Panel",
   "camera": "Aparat",
   "bluetooth": "Bluetooth",
   "todoList": "Lista zadań",
   "settings": "Ustawienia",
   "changeLanguage": "Zmień język",
+  "darkMode": "Tryb ciemny",
   "english": "Angielski",
   "arabic": "Arabski",
   "spanish": "Hiszpański",
   "polish": "Polski",
-  "darkMode": "Tryb ciemny"
+  "name": "Nazwa",
+  "owner": "Właściciel",
+  "contactName": "Nazwa kontaktu",
+  "description": "Opis",
+  "lineChart": "Wykres liniowy",
+  "pieChart": "Wykres kołowy",
+  "barChart": "Wykres słupkowy",
+  "areaChart": "Wykres powierzchniowy",
+  "capture": "Zarejestruj",
+  "todaysTasks": "Dzisiejsze zadania",
+  "writeATask": "Napisz zadanie"
 }

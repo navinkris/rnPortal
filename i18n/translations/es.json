@@ -1,14 +1,25 @@
 {
   "home": "Inicio",
-  "dashboard": "Tablero",
+  "dashboard": "Panel",
   "camera": "Cámara",
   "bluetooth": "Bluetooth",
   "todoList": "Lista de tareas",
-  "settings": "Configuraciones",
+  "settings": "Configuración",
   "changeLanguage": "Cambiar idioma",
+  "darkMode": "Modo oscuro",
   "english": "Inglés",
   "arabic": "Árabe",
   "spanish": "Español",
   "polish": "Polaco",
-  "darkMode": "Modo oscuro"
+  "name": "Nombre",
+  "owner": "Propietario",
+  "contactName": "Nombre de contacto",
+  "description": "Descripción",
+  "lineChart": "Gráfico de líneas",
+  "pieChart": "Gráfico circular",
+  "barChart": "Gráfico de barras",
+  "areaChart": "Gráfico de áreas",
+  "capture": "Capturar",
+  "todaysTasks": "Tareas de hoy",
+  "writeATask": "Escribe una tarea"
 }

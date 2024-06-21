@@ -8,7 +8,7 @@ export function Text(props) {
         style, 
         {
           color: isDarkMode ? 'white' : 'black',
-          opacity: isDarkMode ? 1 : 1
+          opacity: 1
         },
       ]}
       {...rest}

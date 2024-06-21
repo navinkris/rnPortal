@@ -10,6 +10,7 @@ import ToDoListScreen from './ToDoListScreen';
 import DarkMode from '../utils/darkmode.context';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Ionicons from 'react-native-vector-icons/MaterialIcons';
 
 const Drawer = createDrawerNavigator();
 
@@ -29,6 +30,8 @@ export default function MainScreen() {
     }
   }
   
+  const color = isDarkMode ? 'white' : 'black';
+
   return (
     <DarkMode.Provider
       value={{
@@ -37,7 +40,32 @@ export default function MainScreen() {
       }}
     >
       <NavigationContainer theme={isDarkMode ? CustomDarkTheme : DefaultTheme} independent={true}>
-        <Drawer.Navigator>
+        <Drawer.Navigator
+          screenOptions={({ route }) => ({
+          drawerIcon: ({ focused, size }) => {
+            let iconName;
+            const color = isDarkMode ? 'white' : 'black';
+            if (route.name === t('home')) {
+              iconName = 'home';
+            } else if (route.name === t('dashboard')) {
+              iconName ='dashboard';
+            } else if (route.name === t('bluetooth')) {
+              iconName = 'bluetooth';
+            } else if (route.name === t('todoList')) {
+              iconName = 'check';
+            } else if (route.name === t('settings')) {
+              iconName ='settings';
+            } else if (route.name === t('camera')) {
+              iconName = 'camera';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          drawerLabelStyle: { color}
+        })}
+        drawerContentOptions={{
+          activeTintColor: 'blue',
+          inactiveTintColor: 'gray',
+        }}>
           <Drawer.Screen name={t('home')} component={HomeScreen}/>
           <Drawer.Screen name={t('dashboard')} component={DashboardScreen}/>
           <Drawer.Screen name={t('camera')} component={CameraScreen}/>

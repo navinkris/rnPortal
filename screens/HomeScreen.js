@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, ScrollView } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
+import DarkMode from '../utils/darkmode.context';
 
 const App = () => {
-  const [tableHead, setTableHead] = useState(['Name', 'Parent Name', 'Contact Name', 'Description']);
+  const {t} = useTranslation();
+  const { isDarkMode, setIsDarkMode } = useContext(DarkMode);
+  const [tableHead, setTableHead] = useState([t('name'), t('owner'), t('contactName'), t('description')]);
   const [widthArr, setWidthArr] = useState([200, 200, 200, 200]);
   const [tableData, setTableData] = useState([
     {
@@ -90,7 +94,7 @@ const App = () => {
       <View style={{ padding: 16, paddingTop: 30 }}>
         <Table borderStyle={{ borderWidth: 1 }}>
           <Row data={tableHead} widthArr={widthArr} style={{ height: 40, backgroundColor: '#f1f8ff' }} textStyle={{ margin: 6, color: 'black' }} />
-          <Rows data={tableData} widthArr={widthArr} textStyle={{ margin: 6, color: 'black' }} />
+          <Rows data={tableData} widthArr={widthArr} textStyle={{ margin: 6, color: isDarkMode ? 'white' : 'black' }} />
         </Table>
       </View>
     </ScrollView>

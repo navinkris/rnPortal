@@ -2,11 +2,13 @@ import { useTranslation } from "react-i18next";
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, TextInput, View } from "react-native"
 import Task from "../components/Task";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Text } from "../utils/Theme";
+import DarkMode from "../utils/darkmode.context";
 
 const ToDoListScreen = () => {
   const {t} = useTranslation();
+  const { isDarkMode, setIsDarkMode } = useContext(DarkMode);
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
 
@@ -23,7 +25,7 @@ const ToDoListScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={{ backgroundColor: isDarkMode ? 'black' : 'white', flex: 1}}>
       
       <ScrollView
         contentContainerStyle={{
@@ -34,7 +36,7 @@ const ToDoListScreen = () => {
 
       {/* Today's tasks */}
       <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Today's tasks</Text>
+        <Text isDarkMode={isDarkMode} style={styles.sectionTitle}>{t('todaysTasks')}</Text>
 
         <View style={styles.items}>
           {/* This is where the tasks will go */}
@@ -56,7 +58,7 @@ const ToDoListScreen = () => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={task => setTask(task)} />
+        <TextInput style={styles.input} placeholder={t('writeATask')} value={task} onChangeText={task => setTask(task)} />
 
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
@@ -74,7 +76,7 @@ export default ToDoListScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EAED'
+    backgroundColor:  '#E8EAED'
   },
   tasksWrapper: {
     paddingTop: 80,

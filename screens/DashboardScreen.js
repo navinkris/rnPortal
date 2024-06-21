@@ -17,13 +17,13 @@ const DashboardScreen = () => {
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
-          if(route.name === 'LineChart') {
+          if(route.name === t('lineChart')) {
             iconName = 'show-chart';
-          } else if (route.name === 'PieChart') {
+          } else if (route.name === t('pieChart')) {
             iconName = 'pie-chart';
-          } else if (route.name === 'BarChart') {
+          } else if (route.name === t('barChart')) {
             iconName = 'bar-chart';
-          } else if (route.name === 'AreaChart') {
+          } else if (route.name === t('areaChart')) {
             iconName = 'insert-chart';
           }
           return <Icon name={iconName} size={size} color={color} />
@@ -34,10 +34,10 @@ const DashboardScreen = () => {
           inactiveTintColor: 'gray',
       }}
       >
-      <Tab.Screen name="LineChart" component={LineChartScreen}/>
-      <Tab.Screen name="PieChart" component={PieChartScreen}/>
-      <Tab.Screen name="BarChart" component={BarChartScreen}/>
-      <Tab.Screen name="AreaChart" component={AreaChartScreen}/>
+      <Tab.Screen name={t('lineChart')} component={LineChartScreen}/>
+      <Tab.Screen name={t('pieChart')} component={PieChartScreen}/>
+      <Tab.Screen name={t('barChart')} component={BarChartScreen}/>
+      <Tab.Screen name={t('areaChart')} component={AreaChartScreen}/>
     </Tab.Navigator>
   );
 };

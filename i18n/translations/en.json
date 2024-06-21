@@ -10,5 +10,16 @@
   "english": "English",
   "arabic": "Arabic",
   "spanish": "Spanish",
-  "polish": "Polish"
+  "polish": "Polish",
+  "name": "Name",
+  "owner": "Owner",
+  "contactName": "Contact Name",
+  "description": "Description",
+  "lineChart": "Line Chart",
+  "pieChart": "Pie Chart",
+  "barChart": "Bar Chart",
+  "areaChart": "Area Chart",
+  "capture": "Capture",
+  "todaysTasks": "Today's tasks",
+  "writeATask": "Write a task"
 }

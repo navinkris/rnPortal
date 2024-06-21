@@ -40,7 +40,7 @@ const CameraScreen = () => {
             return (
               <View style={styles.captureContainer}>
                 <TouchableOpacity onPress={takePicture} style={styles.captureButton}>
-                  <Text style={styles.captureText}>CAPTURE</Text>
+                  <Text style={styles.captureText}>{t('capture')}</Text>
                 </TouchableOpacity>
               </View>
             );
