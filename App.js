@@ -10,6 +10,10 @@ import ToDoListScreen from './screens/ToDoListScreen';
 import DarkMode from './utils/darkmode.context';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import WelcomeScreen from './screens/WelcomeScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from './navigation';
+import { StatusBar } from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -28,24 +32,28 @@ export default function App() {
       card: '#121212'
     }
   }
-
+  
   return (
-    <DarkMode.Provider
-      value={{
-        isDarkMode,
-        setIsDarkMode
-      }}
-    >
-      <NavigationContainer theme={isDarkMode ? CustomDarkTheme : DefaultTheme}>
-        <Drawer.Navigator>
-          <Drawer.Screen name={t('home')} component={HomeScreen}/>
-          <Drawer.Screen name={t('dashboard')} component={DashboardScreen}/>
-          <Drawer.Screen name={t('camera')} component={CameraScreen}/>
-          <Drawer.Screen name={t('bluetooth')} component={BluetoothScreen}/>
-          <Drawer.Screen name={t('todoList')} component={ToDoListScreen}/>
-          <Drawer.Screen name={t('settings')} component={SettingsScreen}/>
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </DarkMode.Provider>
+    <SafeAreaProvider>
+      <Navigation />
+      <StatusBar />
+    </SafeAreaProvider>    
+    // <DarkMode.Provider
+    //   value={{
+    //     isDarkMode,
+    //     setIsDarkMode
+    //   }}
+    // >
+    //   <NavigationContainer theme={isDarkMode ? CustomDarkTheme : DefaultTheme}>
+    //     <Drawer.Navigator>
+    //       <Drawer.Screen name={t('home')} component={HomeScreen}/>
+    //       <Drawer.Screen name={t('dashboard')} component={DashboardScreen}/>
+    //       <Drawer.Screen name={t('camera')} component={CameraScreen}/>
+    //       <Drawer.Screen name={t('bluetooth')} component={BluetoothScreen}/>
+    //       <Drawer.Screen name={t('todoList')} component={ToDoListScreen}/>
+    //       <Drawer.Screen name={t('settings')} component={SettingsScreen}/>
+    //     </Drawer.Navigator>
+    //   </NavigationContainer>
+    // </DarkMode.Provider>
   )
 };
