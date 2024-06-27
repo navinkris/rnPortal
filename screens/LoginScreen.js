@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Spacing from "../constants/Spacing";
 import FontSize from "../constants/FontSize";
 import Colors from "../constants/Colors";
@@ -6,19 +6,65 @@ import Font from "../constants/Font";
 import MaterialIcons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import AppTextInput from "../components/AppTextInput";
+import { useState } from "react";
 
 const LoginScreen = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [organization, setOrganization] = useState('');
+
+  const handleLogin = async () => {
+    const url = 'https://nuage-portal-react.sdwan.llama2.cloud/sdwan/authservice/system/v8_0/login';
+
+    const headers = {
+      'Content-Type': 'application/json',
+      'Client_id': 'sdwanportal',
+      'Client_secret': 'vnsclientpassword'
+    };
+
+    const body = JSON.stringify({
+      username,
+      password,
+      organization
+    });
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        redirect: 'follow',
+        headers,
+        body,
+        withCredentials: true,
+        credentials: 'include'
+      });
+      console.log("HEREE"+response);
+        if (response.ok) {
+          console.log("COOOKIEEEES "+JSON.stringify(response.headers));
+          const data = JSON.stringify(response);
+          console.log("GETTING HEADERS "+JSON.stringify(response.headers));
+          console.log('Second Query Successful', JSON.stringify(data));
+          // navigation.navigate('home');
+        } else {
+          const responseData =  JSON.stringify(response);
+          Alert.alert('Second Query Failed', responseData.message || 'Unexpected error occurred');
+        }
+      } catch (error) {
+        console.log("HEREEEE"+ error);
+        Alert.alert('Error', 'Failed to perform second query. Please try again later.');
+      }
+  };
+
   const navigation = useNavigation();
   return (
     <SafeAreaView>
-      <View style={{ padding: Spacing * 2}}>
+      <View style={{ padding: Spacing}}>
         <View style={{ alignItems: "center"}}>
           <Text 
             style={{ 
               fontSize: FontSize.xLarge,
               color: Colors.primary,
               fontFamily: Font["poppins-bold"],
-              marginVertical: Spacing * 3
+              marginVertical: Spacing 
               }}>
             Login here
           </Text>
@@ -32,9 +78,26 @@ const LoginScreen = () => {
           >
             Welcome back you've been missed!</Text>
         </View>
-        <View style={{ marginVertical: Spacing * 3}}>
-          <AppTextInput placeholder="Email" />
-          <AppTextInput placeholder="Password" secureTextEntry />
+        <View style={{ marginVertical: Spacing}}>
+        <TextInput
+        style={styles.input}
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Organization"
+        value={organization}
+        onChangeText={setOrganization}
+      />
         </View>
 
         <View>
@@ -47,7 +110,7 @@ const LoginScreen = () => {
         </View>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate("home")}
+          onPress={handleLogin}
           style={{
             padding: Spacing * 2,
             backgroundColor: Colors.primary,
